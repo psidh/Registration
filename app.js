@@ -7,6 +7,7 @@ function generateQRCode() {
         return;
     }
     const data = `Name: ${name}`;
+    console.log(data);
 
     const qrCodeDiv = document.getElementById('qr-code');
     qrCodeDiv.innerHTML = '';
