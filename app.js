@@ -6,8 +6,7 @@ function generateQRCode() {
         alert("Name parameter not found in the URL.");
         return;
     }
-    const data = `Name: ${name}`;
-    console.log(data);
+    console.log(name);
 
     const qrCodeDiv = document.getElementById('qr-code');
     qrCodeDiv.innerHTML = '';
