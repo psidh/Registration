@@ -12,7 +12,7 @@ function generateQRCode() {
     qrCodeDiv.innerHTML = '';
 
     new QRCode(qrCodeDiv, {
-        text: data,
+        text: name,
         width: 128,
         height: 128
     });
