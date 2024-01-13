@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -11,10 +14,11 @@
   </head>
   <body class="bg-gray-100 h-screen">
     <section class="flex flex-col justify-center items-center h-screen">
-      <h1 class="text-3xl my-8 font-semibold text-blue-600">
-        QR Code Generator
-      </h1>
-      <form id="infoForm" class="bg-white p-6 rounded-md shadow-md w-2/3">
+      <h1 class="text-3xl my-8 font-semibold text-blue-600">QR Code Generator</h1>
+      <form
+        id="infoForm"
+        class="bg-white p-6 rounded-md shadow-md max-w-md mx-auto"
+      >
         <div class="mb-4">
           <label for="name" class="block text-sm font-medium text-gray-600">
             Name:
@@ -40,7 +44,10 @@
           />
         </div>
         <div class="mb-4">
-          <label for="college" class="block text-sm font-medium text-gray-600">
+          <label
+            for="college"
+            class="block text-sm font-medium text-gray-600"
+          >
             College:
           </label>
           <input
@@ -64,5 +71,14 @@
 
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="app.js"></script>
+    <script>
+      // Extract parameters from URL and pre-fill the form
+      window.addEventListener('load', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('name').value = urlParams.get('name') || '';
+        document.getElementById('branch').value = urlParams.get('branch') || '';
+        document.getElementById('college').value = urlParams.get('college') || '';
+      });
+    </script>
   </body>
 </html>
