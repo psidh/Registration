@@ -1,26 +1,22 @@
-
-const qrcode = new QRCode("qr-code");
-
 function generateQRCode() {
-    const name = document.getElementById("name").value;
-    const branch = document.getElementById("branch").value;
-    const college = document.getElementById("college").value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
 
-    
-    if (!name || !branch || !college) {
-        alert("Please fill in all fields before generating QR code.");
+    if (!name) {
+        alert("Name parameter not found in the URL.");
         return;
     }
+    const data = `Name: ${name}`;
 
-    
-    const data = name;
+    const qrCodeDiv = document.getElementById('qr-code');
+    qrCodeDiv.innerHTML = '';
 
-    
-    qrcode.makeCode(data);
+    new QRCode(qrCodeDiv, {
+        text: data,
+        width: 128,
+        height: 128
+    });
 }
-
-
-generateQRCode();
-
-
-document.getElementById("infoForm").addEventListener("input", generateQRCode);
+window.onload = function() {
+    generateQRCode();
+};
